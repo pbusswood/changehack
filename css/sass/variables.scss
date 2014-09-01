@@ -1,0 +1,18 @@
+// Brand Colors
+$game-brand:       #777;
+$game-brand-light: lighten($game-brand, 12%);
+$game-brand-dark:  darken($game-brand, 15%);
+
+// Responsive Breakpoints
+$width-small:  400px;
+$width-medium: 768px;
+$width-large:  980px;
+$width-xlarge: 1200px;
+
+// Main Layout
+$main-nav-height: 100px;
+
+// Fonts
+$helvetica: "Helvetica Neue", Helvetica, sans-serif;
+$font-stack: 'ProximaNova', $helvetica;
+$montserrat-stack: 'Montserrat', $font-stack;
