@@ -71,7 +71,7 @@ nav {
     }
 
     ul {
-      margin: 2px 0;
+      margin: 2px -15px 2px 0;
 
       @include media($tablet) {
         margin: 1em 0 0;
@@ -123,7 +123,7 @@ nav {
     list-style-type: none;
     padding: 0;
     float: right;
-    margin: 6px 0;
+    margin: 6px -15px 6px 0;
 
     @include media($tablet) {
       display: none;
@@ -147,7 +147,7 @@ nav {
   li {
     float: left;
     margin: 0;
-    padding: 8px 0 8px 25px;
+    padding: 9px 0;
 
     @include media($tablet) {
       float: none;
@@ -157,6 +157,13 @@ nav {
 
   a {
     color: #fff;
+    opacity: 0.8;
+    padding: 8px 15px;
+    @include transition(opacity 0.3s);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -270,12 +277,6 @@ section {
     padding: 0;
   }
 
-  &#about {
-    h1 {
-      margin: 0 0 1em;
-    }
-  }
-
   &#subscribe {
     background: url(../img/patterns/escheresque.png) repeat;
     background-size: 46px auto;
@@ -303,8 +304,8 @@ section {
 
   &:hover {
     .icon {
-      background-color: #999;
-      border-color: #999;
+      background-color: #72c3dd;
+      border-color: #72c3dd;
 
       .fa {
         color: #fff;
@@ -440,12 +441,13 @@ section {
 
   input[type=submit] {
     width: 32%;
-    background-color: #94eac5;
+    background-color: #72c3dd;
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
-    border: solid 1px #94eac5;
+    border: solid 1px #72c3dd;
     border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
   }
 
   #subscribe-form {
@@ -464,6 +466,15 @@ section {
       color: #89d460;
     }
   }
+}
+
+p.large {
+  font-size: 1.6em;
+  line-height: 1.5;
+  color: #888;
+  margin: 0 0 2em;
+  @include span-columns(10);
+  @include shift(1);
 }
 
 footer {
@@ -490,6 +501,7 @@ footer {
 
     i {
       color: #FE6CA4;
+      padding: 0 2px;
     }
   }
 
@@ -519,82 +531,6 @@ footer {
 
     &:hover {
       opacity: 0.6;
-    }
-  }
-}
-
-@mixin line {
-  display: inline-block;
-  width: $button-size;
-  height: $button-size/7;
-  border-radius: $button-size/14;
-  transition: 0.3s;
-}
-
-.lines {
-  //create middle line
-  @include line;
-  position: relative;
-
-  /*create the upper and lower lines as pseudo-elements of the middle line*/
-  &:before, &:after {
-   @include line;
-    position: absolute;
-    left: 0;
-    content: '';
-    transform-origin: $button-size/14 center;
-  }
-
-  &:before {
-    top: $button-size / 4;
-  }
-
-  &:after {
-    top: -$button-size / 4;
-  }
-}
-
-.lines-button {
-  display: inline-block;
-  padding: $button-size/2 $button-size/4;
-  transition: .3s;
-  cursor: pointer;
-  user-select: none;
-  border-radius: $button-size/7;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  &:active {
-    transition: 0;
-    background: rgba(0,0,0,.1);
-  }
-}
-
-.lines-button.x2 .lines {
-  transition: background .3s .6s ease;
-
-  &:before, &:after{
-    //set transform origin back to center
-    transform-origin: 50% 50%;
-    transition: top .3s .6s ease, transform .3s ease;
-  }
-
-  &.close {
-    transition: background .3s 0s ease;
-    background: transparent;
-
-    &:before, &:after{
-      transition: top .3s ease, transform .3s .5s ease;
-      top:0;
-      width: $button-size;
-    }
-    &:before{
-      transform: rotate3d(0,0,1,45deg);
-    }
-    &:after{
-      transform: rotate3d(0,0,1,-45deg);
     }
   }
 }

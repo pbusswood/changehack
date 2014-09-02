@@ -189,7 +189,7 @@ nav {
     nav.condensed .logo img {
       height: 24px; }
     nav.condensed ul {
-      margin: 2px 0; }
+      margin: 2px -15px 2px 0; }
       @media screen and (max-width: 768px) {
         nav.condensed ul {
           margin: 1em 0 0; } }
@@ -229,7 +229,7 @@ nav {
     list-style-type: none;
     padding: 0;
     float: right;
-    margin: 6px 0; }
+    margin: 6px -15px 6px 0; }
     @media screen and (max-width: 768px) {
       nav ul {
         display: none;
@@ -245,13 +245,20 @@ nav {
   nav li {
     float: left;
     margin: 0;
-    padding: 8px 0 8px 25px; }
+    padding: 9px 0; }
     @media screen and (max-width: 768px) {
       nav li {
         float: none;
         padding-left: 0; } }
   nav a {
-    color: #fff; }
+    color: #fff;
+    opacity: 0.8;
+    padding: 8px 15px;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s; }
+    nav a:hover {
+      opacity: 1; }
 
 .hero {
   position: relative;
@@ -342,8 +349,6 @@ section {
       color: #fff; }
   section.no-pad {
     padding: 0; }
-  section#about h1 {
-    margin: 0 0 1em; }
   section#subscribe {
     background: url(../img/patterns/escheresque.png) repeat;
     background-size: 46px auto;
@@ -381,8 +386,8 @@ section {
       .feature:last-child {
         margin-right: 0; } }
   .feature:hover .icon {
-    background-color: #999;
-    border-color: #999; }
+    background-color: #72c3dd;
+    border-color: #72c3dd; }
     .feature:hover .icon .fa {
       color: #fff; }
   .feature .icon {
@@ -524,12 +529,13 @@ section {
     border-radius: 4px 0px 0px 4px; }
   .subscribe-form input[type=submit] {
     width: 32%;
-    background-color: #94eac5;
+    background-color: #72c3dd;
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
-    border: solid 1px #94eac5;
-    border-radius: 0px 4px 4px 0px; }
+    border: solid 1px #72c3dd;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer; }
   .subscribe-form #subscribe-form {
     overflow: hidden; }
   .subscribe-form .subscribe-msg {
@@ -539,6 +545,19 @@ section {
       color: #ff5c5c; }
     .subscribe-form .subscribe-msg .fa-check {
       color: #89d460; }
+
+p.large {
+  font-size: 1.6em;
+  line-height: 1.5;
+  color: #888;
+  margin: 0 0 2em;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%; }
+  p.large:last-child {
+    margin-right: 0; }
 
 footer {
   background-color: #222;
@@ -557,7 +576,8 @@ footer {
     float: right;
     margin: 7px 40px 7px 0; }
     footer .copyright i {
-      color: #FE6CA4; }
+      color: #FE6CA4;
+      padding: 0 2px; }
   footer ul {
     list-style-type: none;
     padding: 0;
@@ -577,59 +597,6 @@ footer {
     padding: 8px; }
     footer a:hover {
       opacity: 0.6; }
-
-.lines {
-  display: inline-block;
-  width: 2rem;
-  height: 0.28571rem;
-  border-radius: 0.14286rem;
-  transition: 0.3s;
-  position: relative;
-  /*create the upper and lower lines as pseudo-elements of the middle line*/ }
-  .lines:before, .lines:after {
-    display: inline-block;
-    width: 2rem;
-    height: 0.28571rem;
-    border-radius: 0.14286rem;
-    transition: 0.3s;
-    position: absolute;
-    left: 0;
-    content: '';
-    transform-origin: 0.14286rem center; }
-  .lines:before {
-    top: 0.5rem; }
-  .lines:after {
-    top: -0.5rem; }
-
-.lines-button {
-  display: inline-block;
-  padding: 1rem 0.5rem;
-  transition: .3s;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 0.28571rem; }
-  .lines-button:hover {
-    opacity: 1; }
-  .lines-button:active {
-    transition: 0;
-    background: rgba(0, 0, 0, 0.1); }
-
-.lines-button.x2 .lines {
-  transition: background .3s .6s ease; }
-  .lines-button.x2 .lines:before, .lines-button.x2 .lines:after {
-    transform-origin: 50% 50%;
-    transition: top .3s .6s ease, transform .3s ease; }
-  .lines-button.x2 .lines.close {
-    transition: background .3s 0s ease;
-    background: transparent; }
-    .lines-button.x2 .lines.close:before, .lines-button.x2 .lines.close:after {
-      transition: top .3s ease, transform .3s .5s ease;
-      top: 0;
-      width: 2rem; }
-    .lines-button.x2 .lines.close:before {
-      transform: rotate3d(0, 0, 1, 45deg); }
-    .lines-button.x2 .lines.close:after {
-      transform: rotate3d(0, 0, 1, -45deg); }
 
 .blink {
   -webkit-animation-name: blinker;
