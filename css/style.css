@@ -346,7 +346,8 @@ section {
     margin: 0 0 1em; }
   section#subscribe {
     background: url(../img/patterns/escheresque.png) repeat;
-    background-size: 46px auto; }
+    background-size: 46px auto;
+    padding-bottom: 45px; }
     section#subscribe h2 {
       color: #fff;
       font-size: 2em;
