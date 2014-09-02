@@ -80,6 +80,10 @@ nav {
       margin: 6px 0; }
   nav .logo {
     float: left; }
+    @media screen and (max-width: 768px) {
+      nav .logo {
+        float: none;
+        text-align: center; } }
     nav .logo img {
       height: 30px;
       margin: 3px 0;
@@ -91,6 +95,10 @@ nav {
     padding: 0;
     margin: 9px 0;
     float: right; }
+    @media screen and (max-width: 768px) {
+      nav ul {
+        display: none;
+        clear: both; } }
   nav li {
     float: left;
     margin: 0;

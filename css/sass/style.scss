@@ -77,6 +77,11 @@ nav {
   .logo {
     float: left;
 
+    @include media($tablet) {
+      float: none;
+      text-align: center;
+    }
+
     img {
       height: 30px;
       margin: 3px 0;
@@ -89,6 +94,11 @@ nav {
     padding: 0;
     margin: 9px 0;
     float: right;
+
+    @include media($tablet) {
+      display: none;
+      clear: both;
+    }
   }
 
   li {
