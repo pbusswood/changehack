@@ -185,6 +185,9 @@ section {
     font-size: 3.5em;
     text-transform: uppercase;
     margin: 0 0 0.5em; }
+    @media screen and (max-width: 600px) {
+      section h1 {
+        font-size: 2.5em; } }
   section.centered {
     text-align: center; }
   section.dark {
@@ -332,6 +335,14 @@ section {
   width: 48.82117%; }
   .subscribe-header:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    .subscribe-header {
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 100%; }
+      .subscribe-header:last-child {
+        margin-right: 0; } }
   .subscribe-header span {
     font-weight: 400; }
 
@@ -343,6 +354,14 @@ section {
   margin-right: 0; }
   .subscribe-form:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    .subscribe-form {
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 100%; }
+      .subscribe-form:last-child {
+        margin-right: 0; } }
   .subscribe-form input {
     height: 60px;
     padding: 0 20px;
