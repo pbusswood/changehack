@@ -3,6 +3,118 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+.btn {
+  display: inline-block;
+  margin: 0 1em;
+  border: none;
+  background: none; }
+  .btn span {
+    display: block; }
+
+/* ====================== lines button ==================================================*/
+.lines-button {
+  padding: 1rem 0.5rem;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.28571rem;
+  /* */ }
+  .lines-button:hover {
+    opacity: 1; }
+  .lines-button:active {
+    transition: 0; }
+
+.lines {
+  display: inline-block;
+  width: 2rem;
+  height: 0.28571rem;
+  background: #ecf0f1;
+  border-radius: 0.14286rem;
+  transition: 0.3s;
+  position: relative; }
+  .lines:before, .lines:after {
+    display: inline-block;
+    width: 2rem;
+    height: 0.28571rem;
+    background: #ecf0f1;
+    border-radius: 0.14286rem;
+    transition: 0.3s;
+    position: absolute;
+    left: 0;
+    content: '';
+    -webkit-transform-origin: 0.14286rem center;
+    transform-origin: 0.14286rem center; }
+  .lines:before {
+    top: 0.5rem; }
+  .lines:after {
+    top: -0.5rem; }
+
+.lines-button:hover .lines:before {
+  top: 0.57143rem; }
+.lines-button:hover .lines:after {
+  top: -0.57143rem; }
+
+.lines-button.close {
+  -webkit-transform: scale3d(0.8, 0.8, 0.8);
+  transform: scale3d(0.8, 0.8, 0.8); }
+
+.lines-button.arrow.close .lines:before, .lines-button.arrow.close .lines:after {
+  top: 0;
+  width: 1.11111rem; }
+.lines-button.arrow.close .lines:before {
+  -webkit-transform: rotate3d(0, 0, 1, 40deg);
+  transform: rotate3d(0, 0, 1, 40deg); }
+.lines-button.arrow.close .lines:after {
+  -webkit-transform: rotate3d(0, 0, 1, -40deg);
+  transform: rotate3d(0, 0, 1, -40deg); }
+
+.lines-button.arrow-up.close {
+  -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+  transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg); }
+
+.lines-button.minus.close .lines:before, .lines-button.minus.close .lines:after {
+  -webkit-transform: none;
+  transform: none;
+  top: 0;
+  width: 2rem; }
+
+.lines-button.x.close .lines {
+  background: transparent; }
+  .lines-button.x.close .lines:before, .lines-button.x.close .lines:after {
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    top: 0;
+    width: 2rem; }
+  .lines-button.x.close .lines:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg); }
+  .lines-button.x.close .lines:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg); }
+
+.lines-button.x2 .lines {
+  transition: background .3s .5s ease; }
+  .lines-button.x2 .lines:before, .lines-button.x2 .lines:after {
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: top .3s .6s ease, -webkit-transform .3s ease;
+    transition: top .3s .6s ease, transform .3s ease; }
+
+.lines-button.x2.close .lines {
+  transition: background .3s 0s ease;
+  background: transparent; }
+  .lines-button.x2.close .lines:before, .lines-button.x2.close .lines:after {
+    transition: top .3s ease, -webkit-transform .3s .5s ease;
+    transition: top .3s ease, transform .3s .5s ease;
+    top: 0;
+    width: 2rem; }
+  .lines-button.x2.close .lines:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg); }
+  .lines-button.x2.close .lines:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg); }
+
 /* FONTS
 -------------------------------------------------- */
 @font-face {
@@ -53,7 +165,7 @@ a {
 /* CUSTOM STYLES
 -------------------------------------------------- */
 nav {
-  height: 100px;
+  min-height: 100px;
   position: absolute;
   z-index: 100;
   top: 0px;
@@ -73,36 +185,62 @@ nav {
     position: fixed;
     height: 65px;
     padding: 18px 5.5%;
-    background: #222; }
+    background: #222;
+    min-height: 0; }
     nav.condensed .logo img {
       height: 24px; }
     nav.condensed ul {
-      margin: 6px 0; }
+      margin: 2px 0; }
   nav .logo {
     float: left; }
     @media screen and (max-width: 768px) {
       nav .logo {
         float: none;
         text-align: center; } }
+    @media screen and (max-width: 600px) {
+      nav .logo {
+        text-align: left; } }
     nav .logo img {
       height: 30px;
       margin: 3px 0;
       -webkit-transition: all 0.4s;
       -moz-transition: all 0.4s;
       transition: all 0.4s; }
+  nav .btn {
+    display: none;
+    margin: 33px 5.5%;
+    outline: none;
+    position: absolute;
+    top: 0px;
+    right: 0px; }
+    @media screen and (max-width: 768px) {
+      nav .btn {
+        display: block; } }
   nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 9px 0;
-    float: right; }
+    float: right;
+    margin: 6px 0; }
     @media screen and (max-width: 768px) {
       nav ul {
         display: none;
-        clear: both; } }
+        clear: both;
+        float: left;
+        font-size: 1.5em;
+        margin: 1em 0 0; } }
+  nav.open {
+    background-color: rgba(0, 0, 0, 0.85); }
+    @media screen and (max-width: 768px) {
+      nav.open ul {
+        display: block; } }
   nav li {
     float: left;
     margin: 0;
-    padding-left: 25px; }
+    padding: 8px 0 8px 25px; }
+    @media screen and (max-width: 768px) {
+      nav li {
+        float: none;
+        padding-left: 0; } }
   nav a {
     color: #fff; }
 
@@ -144,24 +282,23 @@ nav {
   .hero .underscore {
     margin-left: 5px;
     color: #94eac5; }
-
-button {
-  display: block;
-  padding: 20px 50px;
-  font-weight: 500;
-  font-size: 0.25em;
-  text-transform: uppercase;
-  background-color: #a9c1b1;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  margin: 30px auto 0;
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.3); }
-  @media screen and (max-width: 768px) {
-    button {
-      font-size: 0.4em; } }
+  .hero button {
+    display: block;
+    padding: 20px 50px;
+    font-weight: 500;
+    font-size: 0.25em;
+    text-transform: uppercase;
+    background-color: #a9c1b1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin: 30px auto 0;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    box-shadow: inset 0 -2px rgba(0, 0, 0, 0.3); }
+    @media screen and (max-width: 768px) {
+      .hero button {
+        font-size: 0.4em; } }
 
 .arrow {
   display: block;
@@ -430,6 +567,59 @@ footer {
     padding: 8px; }
     footer a:hover {
       opacity: 0.6; }
+
+.lines {
+  display: inline-block;
+  width: 2rem;
+  height: 0.28571rem;
+  border-radius: 0.14286rem;
+  transition: 0.3s;
+  position: relative;
+  /*create the upper and lower lines as pseudo-elements of the middle line*/ }
+  .lines:before, .lines:after {
+    display: inline-block;
+    width: 2rem;
+    height: 0.28571rem;
+    border-radius: 0.14286rem;
+    transition: 0.3s;
+    position: absolute;
+    left: 0;
+    content: '';
+    transform-origin: 0.14286rem center; }
+  .lines:before {
+    top: 0.5rem; }
+  .lines:after {
+    top: -0.5rem; }
+
+.lines-button {
+  display: inline-block;
+  padding: 1rem 0.5rem;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.28571rem; }
+  .lines-button:hover {
+    opacity: 1; }
+  .lines-button:active {
+    transition: 0;
+    background: rgba(0, 0, 0, 0.1); }
+
+.lines-button.x2 .lines {
+  transition: background .3s .6s ease; }
+  .lines-button.x2 .lines:before, .lines-button.x2 .lines:after {
+    transform-origin: 50% 50%;
+    transition: top .3s .6s ease, transform .3s ease; }
+  .lines-button.x2 .lines.close {
+    transition: background .3s 0s ease;
+    background: transparent; }
+    .lines-button.x2 .lines.close:before, .lines-button.x2 .lines.close:after {
+      transition: top .3s ease, transform .3s .5s ease;
+      top: 0;
+      width: 2rem; }
+    .lines-button.x2 .lines.close:before {
+      transform: rotate3d(0, 0, 1, 45deg); }
+    .lines-button.x2 .lines.close:after {
+      transform: rotate3d(0, 0, 1, -45deg); }
 
 .blink {
   -webkit-animation-name: blinker;
