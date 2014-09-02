@@ -116,6 +116,8 @@ $(function() {
 
   $('.scrollto').click(function(e) {
     e.preventDefault();
+    $('nav').removeClass('open');
+    $('nav .btn').removeClass('close');
     var href = $(this).attr('href');
     $('html, body').animate({
       scrollTop: $(href).offset().top - 65

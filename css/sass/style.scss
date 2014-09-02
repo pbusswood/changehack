@@ -60,10 +60,9 @@ nav {
 
   &.condensed {
     position: fixed;
-    height: 65px;
+    min-height: 65px;
     padding: 18px 5.5%;
     background: #222;
-    min-height: 0;
 
     .logo {
       img {
@@ -73,6 +72,14 @@ nav {
 
     ul {
       margin: 2px 0;
+
+      @include media($tablet) {
+        margin: 1em 0 0;
+      }
+    }
+
+    .btn {
+      margin: 16px 5.5%;
     }
   }
 
@@ -90,10 +97,11 @@ nav {
 
     img {
       height: 30px;
-      margin: 3px 0;
+      margin: 6px 0;
       @include transition(all 0.4s);
 
       @include media($mobile) {
+        max-height: 30px;
         max-width: 80%;
         height: auto;
       }
