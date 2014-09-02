@@ -118,7 +118,7 @@ $(function() {
     e.preventDefault();
     var href = $(this).attr('href');
     $('html, body').animate({
-      scrollTop: $(href).offset().top - 70
+      scrollTop: $(href).offset().top - 65
     }, 1000);
   });
 
@@ -141,7 +141,7 @@ $(function() {
           $(".subscribe-msg").stop(true).html('<i class="fa fa-warning"></i> Email address is not valid.');
           $("input#subscribe-email").focus();
         } else {
-          $(".lj-subscribe-message").html('<i class="fa fa-check"></i> Thanks! We\'ll keep you in the loop!');
+          $(".subscribe-msg").html('<i class="fa fa-check"></i> Thanks! We\'ll keep you in the loop!');
           $('input#subscribe-email').val('');
         }
      });

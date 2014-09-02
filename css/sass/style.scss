@@ -59,9 +59,19 @@ nav {
 
   &.condensed {
     position: fixed;
-    height: 70px;
+    height: 65px;
     padding: 18px 5.5%;
     background: #222;
+
+    .logo {
+      img {
+        height: 24px;
+      }
+    }
+
+    ul {
+      margin: 6px 0;
+    }
   }
 
   .logo {
@@ -70,6 +80,7 @@ nav {
     img {
       height: 30px;
       margin: 3px 0;
+      @include transition(all 0.4s);
     }
   }
 
@@ -121,6 +132,10 @@ nav {
     z-index: 5;
     @include position(absolute, 80px 0px 0px 0px);
     @include size(100% 170px);
+
+    @include media($tablet) {
+      font-size: 2.5em;
+    }
   }
 
   .underscore {
@@ -188,8 +203,10 @@ section {
     padding: 0;
   }
 
-  &#events {
-    @include row(table);
+  &#about {
+    h1 {
+      margin: 0 0 1em;
+    }
   }
 
   &#subscribe {
@@ -207,6 +224,49 @@ section {
 .feature {
   @include span-columns(3);
 
+  @include media($desktop) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+
+  &:hover {
+    .icon {
+      background-color: #999;
+      border-color: #999;
+
+      .fa {
+        color: #fff;
+      }
+    }
+  }
+
+  .icon {
+    position: relative;
+    border: solid 2px #ccc;
+    border-radius: 2em;
+    line-height: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 4em;
+    margin-bottom: 20px;
+    @include size(2em);
+    @include transition(all 0.3s);
+
+    .fa {
+      font-size: 40px;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      line-height: inherit;
+      @include transition(all 0.3s);
+    }
+  }
+
   h2 {
     font-family: $montserrat-stack;
     text-transform: uppercase;
@@ -222,21 +282,54 @@ section {
 }
 
 .event {
-  @include span-columns(4);
-  @include reset-display;
-  $gutter: 0;
+  @include span-columns(4, table);
+
+  @include media($tablet) {
+    @include span-columns(8, block);
+  }
+
+  &:hover {
+    img {
+      @include transform(scale(1.1));
+    }
+
+    .event-details {
+      opacity: 1;
+    }
+  }
 
   .event-img {
     width: 100%;
     line-height: 0;
+    overflow: hidden;
+    position: relative;
   }
 
   img {
     width: 100%;
+    @include transform(scale(1));
+    @include transition(transform 0.3s ease-in-out);
   }
 
-  h2, h3 {
-    display: none;
+  .event-details {
+    opacity: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 20% 0;
+    line-height: 1.5;
+    @include position(absolute, 0px 0px 0px 0px);
+    @include transition(all 0.3s ease-in-out);
+
+    h2 {
+      font-family: $montserrat-stack;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 1.8em;
+
+      span {
+        font-size: 0.6em;
+        display: block;
+      }
+    }
   }
 }
 
@@ -277,6 +370,23 @@ section {
     text-transform: uppercase;
     border: solid 1px #94eac5;
     border-radius: 0px 4px 4px 0px;
+  }
+
+  #subscribe-form {
+    overflow: hidden;
+  }
+
+  .subscribe-msg {
+    margin-bottom: 0;
+    color: #999;
+
+    .fa-warning {
+      color: #ff5c5c;
+    }
+
+    .fa-check {
+      color: #89d460;
+    }
   }
 }
 

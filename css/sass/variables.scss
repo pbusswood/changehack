@@ -3,11 +3,17 @@ $game-brand:       #777;
 $game-brand-light: lighten($game-brand, 12%);
 $game-brand-dark:  darken($game-brand, 15%);
 
-// Responsive Breakpoints
-$width-small:  400px;
-$width-medium: 768px;
-$width-large:  980px;
-$width-xlarge: 1200px;
+// Breakpoints
+$width-mobile: 600px;
+$width-tablet: 768px;
+$width-desktop: 980px;
+$width-large-desktop: 1200px;
+
+// Bourbon Neat Breakpoints
+$mobile: new-breakpoint(max-width $width-mobile 4);
+$tablet: new-breakpoint(max-width $width-tablet 8);
+$desktop: new-breakpoint(max-width $width-desktop 12);
+$large-desktop: new-breakpoint(min-width $width-mobile 12);
 
 // Main Layout
 $main-nav-height: 100px;
